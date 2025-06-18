@@ -331,8 +331,7 @@
 <section id="klan-aciklama">
   <h2>Klan Hakkında</h2>
   <p>
-    ZZONE99, 2018 yılında kurulmuş, PUBG Mobile dünyasında saygın bir konuma sahip bir klandır. 
-    Klanımızın amacı, oyunu seven, takım ruhuna önem veren, disiplinli ve sürekli gelişime açık oyuncuları bir araya getirerek güçlü ve eğlenceli bir oyun deneyimi yaratmaktır. 
+   İlk olarak “Für die GANG” adıyla kurulan ekip, daha sonra “AREA323” adı altında yükselişini sürdürmüş,bugün ise yepyeni bir vizyonla ZZONE99 adıyla yoluna devam etmektedir.Hedefimiz sadece oyun kazanmak değil, aynı zamanda kaliteli bir topluluk oluşturmak.
     <br><br>
     "Ne dengemiz ne dengimiz var ZZONE99 marka!" sloganıyla hareket ederiz. Her zaman sınırları zorlar, yeni stratejiler geliştirir ve oyun içinde dayanışmayı en üst seviyeye çıkarırız. 
     <br><br>
