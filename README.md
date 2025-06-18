@@ -1,512 +1,445 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<title>ZZONE99</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ZZONE99 PUBG MOBILE KLANI</title>
 <style>
-  /* Reset ve temel */
+  /* Reset ve genel ayarlar */
   * {
-    margin:0; padding:0; box-sizing: border-box;
+    margin: 0; padding: 0; box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   body {
-    background: linear-gradient(135deg, #0d1f2d, #001a33);
-    color: #00e5ff;
+    background: #0e1217;
+    color: #a0f0f9;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-
-  /* Preloader açılış animasyonu */
-  #preloader {
-    position: fixed;
-    z-index: 9999;
-    background: #001a33;
-    top:0;left:0;right:0;bottom:0;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction: column;
-    color: #00e5ff;
-    font-size: 3rem;
-    font-weight: 900;
-    letter-spacing: 0.2em;
-    user-select:none;
+  a {
+    color: #26f7e6;
+    text-decoration: none;
   }
-  #preloader img {
-    width: 100px;
-    margin-bottom: 20px;
-    filter: drop-shadow(0 0 5px #00e5ff);
-    animation: glow 2s infinite alternate;
-  }
-  @keyframes glow {
-    from { filter: drop-shadow(0 0 5px #00e5ff);}
-    to { filter: drop-shadow(0 0 20px #00ffff);}
+  a:hover {
+    text-decoration: underline;
   }
 
-  /* Ana konteyner */
-  .container {
-    max-width: 960px;
-    width: 95%;
-    margin-top: 140px;
-    text-align: center;
-    position: relative;
-    z-index: 10;
-  }
-
-  /* Logo ve başlık */
+  /* Header ve logo */
   header {
+    width: 100%;
+    padding: 20px 10px;
+    background: #0a0f14;
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 15px;
-    margin-bottom: 25px;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 0 10px #00fff7aa;
   }
   header img {
-    width: 80px;
-    height: 80px;
-    filter: drop-shadow(0 0 8px #00ffff);
-    animation: logoGlow 3s infinite alternate;
+    height: 70px;
+    animation: glowLogo 3s infinite alternate;
   }
-  @keyframes logoGlow {
-    0% { filter: drop-shadow(0 0 8px #00ffff); }
-    50% { filter: drop-shadow(0 0 20px #00e5ff);}
-    100% { filter: drop-shadow(0 0 8px #00ffff);}
+  @keyframes glowLogo {
+    0% { filter: drop-shadow(0 0 5px #00ffe4); }
+    100% { filter: drop-shadow(0 0 15px #00fff7); }
   }
   header h1 {
     font-size: 2.8rem;
-    letter-spacing: 0.25em;
-    text-shadow: 0 0 10px #00e5ff;
-    user-select:none;
+    letter-spacing: 3px;
+    color: #00fff7;
+    font-weight: 900;
+    text-shadow: 0 0 10px #00fff7;
   }
 
-  /* Liderler bölümü */
-  #liderler {
-    background: rgba(0, 229, 255, 0.1);
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 30px;
+  /* Menü */
+  nav {
+    width: 100%;
+    background: #131b24;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 40px;
+    padding: 10px 0;
+  }
+  nav button {
+    background: #00fff7;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 700;
+    color: #0e1217;
+    font-size: 1.1rem;
+    box-shadow: 0 0 10px #00fff7bb;
+    transition: background 0.3s;
+  }
+  nav button:hover {
+    background: #0ff8ea;
+  }
+
+  /* Bölümler */
+  section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px 0;
+    background: #131b24cc;
+    border-radius: 15px;
+    padding: 25px 40px;
+    box-shadow: 0 0 15px #00fff7aa;
+  }
+  section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #00fff7;
+    text-shadow: 0 0 10px #00fff7aa;
+  }
+
+  /* Klan Açıklaması */
+  #klan-aciklama p {
+    line-height: 1.7;
+    font-size: 1.15rem;
+    text-align: justify;
+    color: #a0f0f9;
+  }
+
+  /* Liderler */
+  #liderler {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
   }
   .lider {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #00e5ff;
-    cursor: default;
-    user-select:none;
-    width: 140px;
+    background: #0a1620;
+    border-radius: 12px;
+    width: 220px;
+    padding: 15px;
+    box-shadow: 0 0 10px #00fff7aa;
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  .lider:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #00fff7;
   }
   .lider img {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    border-radius: 15px;
-    margin-bottom: 10px;
-    filter: drop-shadow(0 0 10px #00e5ff);
-    transition: transform 0.3s ease;
-  }
-  .lider:hover img {
-    transform: scale(1.1) rotate(5deg);
-    filter: drop-shadow(0 0 25px #00ffff);
-  }
-  .lider .nick {
-    font-weight: 700;
-    font-size: 1.3rem;
-    text-shadow: 0 0 8px #00e5ff;
-    margin-bottom: 4px;
-  }
-  .lider .id {
-    font-size: 0.9rem;
-    color: #a0f9ff;
-    font-style: italic;
-  }
-
-  /* Butonlar */
-  .buttons {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-  }
-  button, #tiktok-btn {
-    background: #00e5ff;
-    border: none;
-    color: #001a33;
-    font-weight: 700;
-    padding: 15px 35px;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    box-shadow: 0 0 12px #00e5ff;
-    transition: background 0.3s ease, color 0.3s ease;
-    user-select:none;
-  }
-  button:hover, #tiktok-btn:hover {
-    background: #00c4cc;
-    color: #000d12;
-  }
-
-  /* TikTok Popup */
-  #tiktok-popup {
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    background: rgba(0, 229, 255, 0.12);
-    border: 2px solid #00e5ff;
-    padding: 15px 25px;
+    width: 150px;
     border-radius: 12px;
-    box-shadow: 0 0 20px #00e5ff;
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    min-width: 200px;
-    z-index: 50;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 8px #00fff7);
   }
-  #tiktok-popup.active {
-    display: flex;
+  .lider h3 {
+    font-size: 1.3rem;
+    color: #00fff7;
+    margin-bottom: 5px;
   }
-  #tiktok-popup a {
-    color: #00e5ff;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
-  }
-  #tiktok-popup a:hover {
-    color: #00ffff;
-    text-shadow: 0 0 5px #00e5ff;
+  .lider span {
+    font-size: 1rem;
+    color: #80f0f9;
   }
 
-  /* Başvuru formu modal */
-  #basvuru-modal {
+  /* TikTok Profilleri animasyonlu popup */
+  #tiktok-profil {
     position: fixed;
-    top:0;left:0;right:0;bottom:0;
-    background: rgba(0, 0, 0, 0.8);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-    padding: 15px;
-  }
-  #basvuru-modal.active {
-    display: flex;
-  }
-  #basvuru-form {
-    background: #001a33;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #0a1821cc;
+    padding: 10px;
     border-radius: 15px;
-    padding: 25px 30px;
-    width: 100%;
-    max-width: 420px;
-    color: #00e5ff;
-    box-shadow: 0 0 20px #00e5ff;
-    user-select:none;
+    box-shadow: 0 0 12px #00fff7cc;
+    cursor: pointer;
+    transition: width 0.4s ease;
+    width: 50px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
   }
-  #basvuru-form label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: 600;
-    text-align: left;
+  #tiktok-profil.expanded {
+    width: 220px;
   }
-  #basvuru-form input, #basvuru-form select {
-    width: 100%;
-    padding: 10px 12px;
-    margin-bottom: 15px;
+  #tiktok-profil:hover {
+    width: 220px;
+  }
+  #tiktok-profil img {
+    width: 35px;
+    margin-right: 10px;
+    filter: drop-shadow(0 0 4px #00fff7);
+  }
+  #tiktok-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    user-select: none;
+  }
+  #tiktok-profil.expanded #tiktok-links,
+  #tiktok-profil:hover #tiktok-links {
+    opacity: 1;
+    user-select: auto;
+  }
+  #tiktok-links a {
+    color: #00fff7;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  #tiktok-links a:hover {
+    text-decoration: underline;
+  }
+
+  /* Başvuru Formu */
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  label {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #00fff7;
+  }
+  input, select, textarea {
+    padding: 10px;
     border-radius: 8px;
     border: none;
     font-size: 1rem;
-    font-family: inherit;
     outline: none;
   }
-  #basvuru-form input:focus, #basvuru-form select:focus {
-    box-shadow: 0 0 8px #00ffff;
+  input:focus, select:focus, textarea:focus {
+    box-shadow: 0 0 8px #00fff7aa;
   }
-  #basvuru-form button[type="submit"] {
-    width: 100%;
-    background: #00e5ff;
+  button[type="submit"] {
+    background: #00fff7;
     border: none;
-    padding: 12px;
-    border-radius: 50px;
-    font-weight: 700;
+    font-weight: 900;
+    padding: 12px 0;
+    color: #0e1217;
+    border-radius: 30px;
     cursor: pointer;
-    color: #001a33;
-    font-size: 1.1rem;
-    box-shadow: 0 0 15px #00e5ff;
+    font-size: 1.2rem;
+    box-shadow: 0 0 10px #00fff7bb;
     transition: background 0.3s ease;
   }
-  #basvuru-form button[type="submit"]:hover {
-    background: #00c4cc;
-  }
-  #basvuru-feedback {
-    margin-top: 8px;
-    font-weight: 600;
-    font-size: 0.9rem;
-  }
-  #basvuru-feedback.error {
-    color: #ff3333;
+  button[type="submit"]:hover {
+    background: #0ff8ea;
   }
 
-  /* Ziyaretçi sayacı */
-  #visitor-counter {
-    width: 100%;
-    max-width: 960px;
-    background: rgba(0, 229, 255, 0.1);
-    border-radius: 15px;
-    overflow: hidden;
-    margin-bottom: 40px;
-    box-shadow: 0 0 10px #00e5ff;
-  }
-  #visitor-bar {
-    height: 25px;
-    background: #00e5ff;
-    width: 0;
-    transition: width 1s ease;
-  }
-  #visitor-text {
-    color: #00e5ff;
-    font-weight: 700;
-    padding: 6px 12px;
-    user-select:none;
+  /* İletişim */
+  #iletisim {
     text-align: center;
   }
-
-  /* Footer */
-  footer {
-    margin: 40px 0 20px;
-    color: #00787f;
-    font-weight: 600;
-    font-size: 1rem;
-    letter-spacing: 0.12em;
-    user-select:none;
-    text-align: center;
-  }
-  footer .famiilla {
-    font-weight: 900;
+  #iletisim h3 {
+    margin-bottom: 15px;
     font-size: 1.4rem;
-    margin-bottom: 5px;
-    color: #00e5ff;
-    text-shadow: 0 0 12px #00ffff;
+    color: #00fff7;
   }
-  footer .since {
-    font-style: italic;
-    font-weight: 500;
-    color: #00aabb;
+  #iletisim a {
+    font-size: 1.5rem;
+    color: #00fff7;
+    margin: 0 10px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  #iletisim a:hover {
+    transform: scale(1.2);
+  }
+
+  /* Kayan Logo ve Slogan Alt Kısım */
+  footer {
+    width: 100%;
+    background: #0a0f14;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    box-shadow: 0 -2px 10px #00fff7aa;
+  }
+  .marquee-wrapper {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+  }
+  .marquee-content {
+    display: flex;
+    align-items: center;
+    animation: marqueeAnim 15s linear infinite;
+  }
+  .marquee-content img {
+    height: 40px;
+    margin-right: 15px;
+    filter: drop-shadow(0 0 8px #00fff7);
+  }
+  .marquee-content span {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #00fff7;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px #00fff7bb;
+    white-space: nowrap;
+    user-select: none;
+  }
+  @keyframes marqueeAnim {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
   }
 
   /* Responsive */
-  @media (max-width: 600px) {
-    header {
-      flex-direction: column;
-      gap: 8px;
+  @media(max-width: 768px) {
+    #liderler {
+      gap: 30px;
+      justify-content: center;
     }
-    header h1 {
-      font-size: 2rem;
+    nav {
+      gap: 15px;
+      flex-wrap: wrap;
     }
-    .lider {
-      width: 100px;
+    nav button {
+      padding: 8px 15px;
+      font-size: 1rem;
     }
-    .lider img {
-      width: 80px;
-      height: 80px;
+    section {
+      padding: 20px 20px;
     }
-    .buttons {
-      flex-direction: column;
-      gap: 18px;
-    }
-    button, #tiktok-btn {
-      width: 100%;
-      padding: 15px 0;
-      font-size: 1.2rem;
-      border-radius: 12px;
-    }
-    #basvuru-form {
-      padding: 20px;
+    #tiktok-profil.expanded, #tiktok-profil:hover {
+      width: 160px;
     }
   }
 </style>
 </head>
 <body>
 
-<!-- Açılış animasyonu (Preloader) -->
-<div id="preloader">
+<header>
   <img src="logo.png" alt="ZZONE99 Logo" />
-  ZZONE99
+  <h1>ZZONE99</h1>
+</header>
+
+<nav>
+  <button onclick="scrollToSection('klan-aciklama')">Klan Hakkında</button>
+  <button onclick="scrollToSection('liderler')">LİDERLER</button>
+  <button onclick="scrollToSection('basvuru')">KLANA KATIL</button>
+  <button onclick="scrollToSection('iletisim')">İLETİŞİM</button>
+</nav>
+
+<section id="klan-aciklama">
+  <h2>Klan Hakkında</h2>
+  <p>
+    ZZONE99, 2018 yılında kurulmuş, PUBG Mobile dünyasında saygın bir konuma sahip bir klandır. 
+    Klanımızın amacı, oyunu seven, takım ruhuna önem veren, disiplinli ve sürekli gelişime açık oyuncuları bir araya getirerek güçlü ve eğlenceli bir oyun deneyimi yaratmaktır. 
+    <br><br>
+    "Ne dengemiz ne dengimiz var ZZONE99 marka!" sloganıyla hareket ederiz. Her zaman sınırları zorlar, yeni stratejiler geliştirir ve oyun içinde dayanışmayı en üst seviyeye çıkarırız. 
+    <br><br>
+    Bizim için sadece oyun değil, aynı zamanda bir aile olmak önemlidir. Klan üyelerimiz arasında karşılıklı saygı ve destek en öncelikli değerdir.
+  </p>
+</section>
+
+<section id="liderler">
+  <h2>LİDERLER</h2>
+  <div id="liderler">
+    <div class="lider">
+      <img src="mazz.png" alt="mAzz99" />
+      <h3>mAzz99</h3>
+      <span>516572604</span>
+    </div>
+    <div class="lider">
+      <img src="yazz.png" alt="yAzz99" />
+      <h3>yAzz99</h3>
+      <span>520654025</span>
+    </div>
+  </div>
+</section>
+
+<section id="basvuru">
+  <h2>KLANA KATIL</h2>
+  <form action="https://formspree.io/f/xldnljve" method="POST">
+    <label for="uid">UID (Oyuncu ID'niz)</label>
+    <input type="number" id="uid" name="UID" required placeholder="UID numaranızı girin" />
+    
+    <label for="oyunIsmi">Oyun İsim</label>
+    <input type="text" id="oyunIsmi" name="OyunIsmi" required placeholder="Oyundaki nickinizi yazın" />
+    
+    <label for="isim">İsim</label>
+    <input type="text" id="isim" name="Isim" required placeholder="Gerçek isminiz" />
+    
+    <label for="yas">Yaş</label>
+    <input type="number" id="yas" name="Yas" required min="10" max="100" placeholder="Yaşınızı girin" />
+    
+    <label for="cihaz">Kullandığınız Cihaz</label>
+    <select id="cihaz" name="Cihaz" required>
+      <option value="" disabled selected>Cihaz seçin</option>
+      <option value="Android">Android</option>
+      <option value="iOS">iOS</option>
+      <option value="Emülatör">Emülatör</option>
+    </select>
+    
+    <label for="aktiflik">Aktiflik Durumu</label>
+    <textarea id="aktiflik" name="Aktiflik" rows="3" placeholder="Günlük oynama süreniz, oyun içi aktifliğiniz vb." required></textarea>
+    
+    <button type="submit">Başvuruyu Gönder</button>
+  </form>
+</section>
+
+<section id="iletisim">
+  <h2>İLETİŞİM</h2>
+  <h3>Bizi Takip Edin</h3>
+  <div>
+    <a href="https://www.tiktok.com/@mazz99theboss" target="_blank" aria-label="mAzz99 TikTok Profili">
+      <img src="tiktok-icon.svg" alt="TikTok Icon" width="30" /> @mazz99theboss
+    </a>
+    <a href="https://www.tiktok.com/@babavizyondapm" target="_blank" aria-label="BabavizyondaPM TikTok Profili">
+      <img src="tiktok-icon.svg" alt="TikTok Icon" width="30" /> @babavizyondapm
+    </a>
+  </div>
+</section>
+
+<!-- TikTok Profil Animasyonu -->
+<div id="tiktok-profil" tabindex="0" role="button" aria-expanded="false" aria-label="TikTok Profilleri">
+  <img src="tiktok-icon.svg" alt="TikTok" />
+  <div id="tiktok-links" aria-hidden="true">
+    <a href="https://www.tiktok.com/@mazz99theboss" target="_blank">@mazz99theboss</a>
+    <a href="https://www.tiktok.com/@babavizyondapm" target="_blank">@babavizyondapm</a>
+  </div>
 </div>
 
-<div class="container" role="main" aria-label="Ana içerik">
-
-  <!-- Başlık ve logo -->
-  <header>
-    <img src="logo.png" alt="ZZONE99 Logo" />
-    <h1>ZZONE99</h1>
-  </header>
-
-  <!-- Liderler bölümü -->
-  <section id="liderler" aria-label="Liderler">
-    <div class="lider" tabindex="0" aria-describedby="lider1-desc">
-      <img src="mazz.png" alt="mAzz99 avatar" />
-      <div class="nick">mAzz99</div>
-      <div class="id" id="lider1-desc">516572604</div>
-    </div>
-    <div class="lider" tabindex="0" aria-describedby="lider2-desc">
-      <img src="yazz.png" alt="yAzz99 avatar" />
-      <div class="nick">yAzz99</div>
-      <div class="id" id="lider2-desc">520654025</div>
-    </div>
-  </section>
-
-  <!-- Butonlar -->
-  <div class="buttons">
-    <button id="basvuru-open-btn" aria-haspopup="dialog" aria-controls="basvuru-modal">KLANA KATIL</button>
-    <button id="tiktok-btn" aria-expanded="false" aria-controls="tiktok-popup">TikTok Profilleri</button>
-  </div>
-
-  <!-- TikTok Popup -->
-  <nav id="tiktok-popup" role="region" aria-label="TikTok Profilleri" tabindex="-1">
-    <a href="https://www.tiktok.com/@mazz99theboss" target="_blank" rel="noopener" aria-label="mAzz99 TikTok profili">@mazz99theboss</a>
-    <a href="https://www.tiktok.com/@babavizyondapm" target="_blank" rel="noopener" aria-label="babavizyondapm TikTok profili">@babavizyondapm</a>
-  </nav>
-
-  <!-- Başvuru Formu Modal -->
-  <div id="basvuru-modal" role="dialog" aria-modal="true" aria-labelledby="basvuru-title" tabindex="-1">
-    <form id="basvuru-form" action="https://formspree.io/f/xldnljve" method="POST" novalidate>
-      <h2 id="basvuru-title" style="text-align:center; margin-bottom: 18px;">Klan Başvuru Formu</h2>
-      <label for="uid">UID (Oyuncu Kimliği):</label>
-      <input type="text" id="uid" name="UID" required autocomplete="off" />
-      
-      <label for="oyunIsmi">Oyun İsmi:</label>
-      <input type="text" id="oyunIsmi" name="OyunIsmi" required autocomplete="off" />
-      
-      <label for="isim">Gerçek İsim:</label>
-      <input type="text" id="isim" name="Isim" required autocomplete="off" />
-      
-      <label for="yas">Yaş:</label>
-      <input type="number" id="yas" name="Yas" min="10" max="99" required autocomplete="off" />
-      
-      <label for="cihaz">Cihaz:</label>
-      <select id="cihaz" name="Cihaz" required>
-        <option value="" disabled selected>Seçiniz</option>
-        <option value="Android">Android</option>
-        <option value="iOS">iOS</option>
-        <option value="PC">PC</option>
-        <option value="Diğer">Diğer</option>
-      </select>
-      
-      <label for="aktiflik">Aktiflik Durumu:</label>
-      <select id="aktiflik" name="Aktiflik" required>
-        <option value="" disabled selected>Seçiniz</option>
-        <option value="Günlük">Günlük</option>
-        <option value="Haftalık">Haftalık</option>
-        <option value="Aylık">Aylık</option>
-        <option value="Düşük">Düşük</option>
-      </select>
-      
-      <button type="submit" aria-label="Başvuruyu Gönder">Başvur</button>
-      <div id="basvuru-feedback" role="alert" aria-live="polite"></div>
-    </form>
-  </div>
-
-  <!-- Ziyaretçi Sayacı -->
-  <section id="visitor-counter" aria-label="Ziyaretçi Sayacı">
-    <div id="visitor-text" aria-live="polite" aria-atomic="true">Ziyaretçi Sayısı: 0</div>
-    <div id="visitor-bar"></div>
-  </section>
-
-</div>
-
-<!-- Footer -->
 <footer>
-  <div class="famiilla">Für die Famiilla</div>
-  <div class="since">SINCE 2018</div>
+  <div class="marquee-wrapper" aria-label="Kayan Logo ve Slogan">
+    <div class="marquee-content" aria-hidden="true">
+      <img src="logo.png" alt="" />
+      <span>NE DENGEMİZ NE DENGİMİZ VAR ZZONE99 MARKA &nbsp;&nbsp;&nbsp;</span>
+      <img src="logo.png" alt="" />
+      <span>NE DENGEMİZ NE DENGİMİZ VAR ZZONE99 MARKA &nbsp;&nbsp;&nbsp;</span>
+    </div>
+  </div>
 </footer>
 
 <script>
-  // Preloader 2 saniye sonra gizle
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      const preloader = document.getElementById('preloader');
-      if (preloader) preloader.style.display = 'none';
-    }, 2000);
-  });
+  // Bölüme scroll
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
 
-  // Başvuru Modal açma/kapatma
-  const basvuruBtn = document.getElementById('basvuru-open-btn');
-  const basvuruModal = document.getElementById('basvuru-modal');
-  const basvuruForm = document.getElementById('basvuru-form');
-  const basvuruFeedback = document.getElementById('basvuru-feedback');
-
-  basvuruBtn.addEventListener('click', () => {
-    basvuruModal.classList.add('active');
-    basvuruModal.focus();
+  // TikTok Profil açma-kapama animasyonu
+  const tiktokDiv = document.getElementById('tiktok-profil');
+  tiktokDiv.addEventListener('click', () => {
+    tiktokDiv.classList.toggle('expanded');
+    const expanded = tiktokDiv.classList.contains('expanded');
+    tiktokDiv.setAttribute('aria-expanded', expanded);
+    document.getElementById('tiktok-links').setAttribute('aria-hidden', !expanded);
   });
-  basvuruModal.addEventListener('click', (e) => {
-    if (e.target === basvuruModal) {
-      basvuruModal.classList.remove('active');
-      basvuruFeedback.textContent = '';
-      basvuruFeedback.classList.remove('error');
-      basvuruForm.reset();
+  // Klavyeden erişim için enter tuşu
+  tiktokDiv.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      tiktokDiv.click();
     }
   });
-
-  // Formspree AJAX gönderimi
-  basvuruForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    basvuruFeedback.textContent = '';
-    basvuruFeedback.classList.remove('error');
-
-    const data = new FormData(basvuruForm);
-    fetch(basvuruForm.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      if (response.ok) {
-        basvuruFeedback.textContent = 'Başvurunuz başarıyla gönderildi! Teşekkürler.';
-        basvuruForm.reset();
-      } else {
-        response.json().then(data => {
-          if (data.errors) {
-            basvuruFeedback.textContent = data.errors.map(e => e.message).join(', ');
-          } else {
-            basvuruFeedback.textContent = 'Başvuru gönderilirken hata oluştu.';
-          }
-          basvuruFeedback.classList.add('error');
-        });
-      }
-    }).catch(() => {
-      basvuruFeedback.textContent = 'İnternet bağlantınızı kontrol edin.';
-      basvuruFeedback.classList.add('error');
-    });
-  });
-
-  // TikTok popup aç/kapa
-  const tiktokBtn = document.getElementById('tiktok-btn');
-  const tiktokPopup = document.getElementById('tiktok-popup');
-  tiktokBtn.addEventListener('click', () => {
-    const isActive = tiktokPopup.classList.toggle('active');
-    tiktokBtn.setAttribute('aria-expanded', isActive);
-    if (isActive) tiktokPopup.focus();
-  });
-
-  // Ziyaretçi sayacı (basit demo, localStorage ile sayar)
-  const visitorText = document.getElementById('visitor-text');
-  const visitorBar = document.getElementById('visitor-bar');
-  function updateVisitorCount() {
-    let count = localStorage.getItem('zzone99VisitorCount') || 0;
-    count = parseInt(count, 10) + 1;
-    localStorage.setItem('zzone99VisitorCount', count);
-    visitorText.textContent = `Ziyaretçi Sayısı: ${count}`;
-    // Bar genişliğini max 1000 ziyaretçi baz al
-    let widthPercent = Math.min(100, (count / 1000) * 100);
-    visitorBar.style.width = widthPercent + '%';
-  }
-  updateVisitorCount();
-
 </script>
-</body>
 
+</body>
