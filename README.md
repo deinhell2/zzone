@@ -4,63 +4,114 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ZZONE99</title>
 <style>
-  /* Temel Reset */
+  /* Reset */
   * {
     margin: 0; padding: 0; box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   body {
-    background: linear-gradient(135deg, #001f3f, #0074D9);
+    background: linear-gradient(135deg, #00f0ff, #001522);
     color: #e0f7ff;
     min-height: 100vh;
     overflow-x: hidden;
+  }
+  /* Glow arka plan */
+  body::before {
+    content: "";
+    position: fixed;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at center, #40f0ff, transparent 70%);
+    filter: blur(100px);
+    z-index: 0;
   }
   /* Giriş animasyonu kapsayıcısı */
   #intro {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
-    background: #001f3f;
+    background: #001522;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
     z-index: 9999;
+    text-align: center;
+    padding: 20px;
   }
-  /* Logo animasyonu */
+  /* Logo büyüme animasyonu */
   #intro img {
-    width: 120px;
-    animation: slideRight 3s ease forwards;
+    width: 150px;
+    animation: grow 2s ease forwards;
+    filter: drop-shadow(0 0 15px #00ffff);
   }
-  @keyframes slideRight {
-    0% { transform: translateX(-150%); opacity: 0; }
-    80% { transform: translateX(10px); opacity: 1; }
-    100% { transform: translateX(0); opacity: 1; }
+  @keyframes grow {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
   }
   /* Klan ismi ve slogan */
   #intro h1 {
-    color: #00ffff;
-    font-size: 3rem;
     margin-top: 1rem;
-    text-shadow: 0 0 15px #00ffff;
+    font-size: 3rem;
+    color: #00ffff;
+    text-shadow:
+      0 0 10px #00ffff,
+      0 0 20px #00e6ff,
+      0 0 30px #00ccff,
+      0 0 40px #0099cc;
   }
   #intro p {
     color: #a0e7ff;
+    font-style: italic;
     margin-top: 0.5rem;
     font-size: 1.2rem;
-    font-style: italic;
+    text-shadow: 0 0 10px #007799;
   }
-  /* Giriş animasyonu gizleme animasyonu */
+  /* KLANA KATIL butonu */
+  #intro button {
+    margin-top: 2rem;
+    background: #00ffff;
+    color: #001522;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow:
+      0 0 8px #00ffff,
+      0 0 20px #00ccff;
+    transition: background 0.3s ease;
+  }
+  #intro button:hover {
+    background: #00ccff;
+    box-shadow:
+      0 0 15px #00ccff,
+      0 0 30px #0099cc;
+    color: #e0f7ff;
+  }
+  /* Fade out animasyonu */
   .fadeOut {
     animation: fadeOutAnim 1s forwards;
   }
   @keyframes fadeOutAnim {
-    to { opacity: 0; visibility: hidden; }
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
   }
   /* Ana içerik */
   main {
+    position: relative;
+    z-index: 1;
     padding: 2rem;
     max-width: 900px;
-    margin: 100px auto 40px auto;
+    margin: 120px auto 40px auto;
   }
   /* Açıklama */
   #description {
@@ -180,6 +231,7 @@
   <img src="logo.png" alt="ZZONE99 Logo" />
   <h1>ZZONE99</h1>
   <p>NE DENGEMİZ NE DENGİMİZ VAR ZZONE MARKA</p>
+  <button onclick="window.location.href='#basvuru'">KLANA KATIL</button>
 </div>
 
 <!-- Ana içerik -->
@@ -219,6 +271,29 @@
       </a>
     </div>
   </section>
+  
+  <!-- Başvuru formu örneği -->
+  <section id="basvuru" aria-label="Başvuru Formu" style="max-width: 400px; margin: 0 auto;">
+    <h2 style="color:#00ffff; text-align:center; margin-bottom: 1rem;">KLANA KATIL</h2>
+    <form action="https://formspree.io/f/xldnljve" method="POST" style="display:flex; flex-direction: column; gap: 12px;">
+      <input type="text" name="uid" placeholder="UID" required style="padding:10px; border-radius:6px; border:none;"/>
+      <input type="text" name="oyun_ismi" placeholder="Oyun İsmi" required style="padding:10px; border-radius:6px; border:none;"/>
+      <input type="text" name="isim" placeholder="İsim" required style="padding:10px; border-radius:6px; border:none;"/>
+      <input type="number" name="yas" placeholder="Yaş" required min="10" max="100" style="padding:10px; border-radius:6px; border:none;"/>
+      <select name="cihaz" required style="padding:10px; border-radius:6px; border:none;">
+        <option value="" disabled selected>Cihaz Seçiniz</option>
+        <option value="Android">Android</option>
+        <option value="iOS">iOS</option>
+      </select>
+      <select name="aktiflik" required style="padding:10px; border-radius:6px; border:none;">
+        <option value="" disabled selected>Aktiflik Durumu</option>
+        <option value="Günlük">Günlük</option>
+        <option value="Haftalık">Haftalık</option>
+        <option value="Aylık">Aylık</option>
+      </select>
+      <button type="submit" style="background:#00ffff; color:#001522; padding:12px; border:none; border-radius:30px; font-weight:bold; cursor:pointer; box-shadow:0 0 8px #00ffff;">Gönder</button>
+    </form>
+  </section>
 </main>
 
 <!-- Footer -->
@@ -227,7 +302,7 @@
 </footer>
 
 <script>
-  // Giriş animasyonunu yavaşlat ve gizle
+  // Giriş animasyonunu 2 saniyede gizle
   window.addEventListener('load', () => {
     setTimeout(() => {
       const intro = document.getElementById('intro');
@@ -235,7 +310,8 @@
       setTimeout(() => {
         intro.style.display = 'none';
       }, 1000);
-    }, 3000); // 3 saniyeye ayarlandı
+    }, 2000);
   });
 </script>
 </body>
+
