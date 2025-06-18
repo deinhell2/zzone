@@ -4,21 +4,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ZZONE99</title>
 
+  <!-- Font Awesome TikTok ikonu için -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
   <style>
-    /* --- Orijinal site temel renkleri ve font */
+    /* Temel ve tema renkleri */
     body {
       margin: 0;
-      background: #000014;
+      background: linear-gradient(135deg, #000014 0%, #001022 100%);
       color: #00ffff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       overflow-x: hidden;
+      min-height: 100vh;
     }
 
-    /* --- Sayfa tam ortalama için flex container */
+    /* Preloader ekranı */
     #preloader {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: #000014;
+      background: linear-gradient(135deg, #000014, #001022);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -27,7 +34,7 @@
       user-select: none;
     }
 
-    /* Logo ve ZZONE99 yazısı yan yana */
+    /* Logo ve yazı bir arada */
     #preloader .logo-text-wrapper {
       display: flex;
       align-items: center;
@@ -79,7 +86,7 @@
         0 0 100px #0ff;
     }
 
-    /* Shine efekti - animasyonlu parlak çizgi */
+    /* Shine efekti */
     #preloader .shine-effect {
       position: absolute;
       top: 0; left: -75%;
@@ -97,7 +104,7 @@
       100% { left: 125%; }
     }
 
-    /* Slogan altına ekleniyor */
+    /* Slogan */
     #preloader .slogan {
       margin-top: 15px;
       font-size: 1.3rem;
@@ -110,7 +117,7 @@
       text-align: center;
     }
 
-    /* Particle efektleri için container */
+    /* Particle efekti */
     #preloader .particles {
       position: absolute;
       width: 100%;
@@ -120,8 +127,6 @@
       overflow: visible;
       z-index: 0;
     }
-
-    /* Particle elementleri */
     #preloader .particle {
       position: absolute;
       background: #00fff7;
@@ -130,71 +135,30 @@
       filter: drop-shadow(0 0 3px #00fff7);
       animation: floatParticle linear infinite;
     }
-
-    /* Particle boyutları ve konumları */
-    #preloader .particle:nth-child(1) {
-      width: 6px; height: 6px;
-      top: 20%; left: 15%;
-      animation-duration: 6s;
-      animation-delay: 0s;
-    }
-    #preloader .particle:nth-child(2) {
-      width: 4px; height: 4px;
-      top: 50%; left: 80%;
-      animation-duration: 8s;
-      animation-delay: 2s;
-    }
-    #preloader .particle:nth-child(3) {
-      width: 5px; height: 5px;
-      top: 70%; left: 40%;
-      animation-duration: 5s;
-      animation-delay: 4s;
-    }
-    #preloader .particle:nth-child(4) {
-      width: 3px; height: 3px;
-      top: 30%; left: 60%;
-      animation-duration: 7s;
-      animation-delay: 1s;
-    }
-    #preloader .particle:nth-child(5) {
-      width: 6px; height: 6px;
-      top: 80%; left: 20%;
-      animation-duration: 9s;
-      animation-delay: 3s;
-    }
-
+    #preloader .particle:nth-child(1) { width: 6px; height: 6px; top: 20%; left: 15%; animation-duration: 6s; animation-delay: 0s; }
+    #preloader .particle:nth-child(2) { width: 4px; height: 4px; top: 50%; left: 80%; animation-duration: 8s; animation-delay: 2s; }
+    #preloader .particle:nth-child(3) { width: 5px; height: 5px; top: 70%; left: 40%; animation-duration: 5s; animation-delay: 4s; }
+    #preloader .particle:nth-child(4) { width: 3px; height: 3px; top: 30%; left: 60%; animation-duration: 7s; animation-delay: 1s; }
+    #preloader .particle:nth-child(5) { width: 6px; height: 6px; top: 80%; left: 20%; animation-duration: 9s; animation-delay: 3s; }
     @keyframes floatParticle {
       0% { transform: translateY(0) translateX(0); opacity: 0.8; }
       50% { transform: translateY(-10px) translateX(5px); opacity: 1; }
       100% { transform: translateY(0) translateX(0); opacity: 0.8; }
     }
 
-    /* --- Ana site içeriği gizli başta, sonra gösterilecek */
+    /* Ana içerik gizli */
     #content {
       display: none;
+      padding: 30px 15px 60px;
+      max-width: 960px;
+      margin: auto;
     }
 
-    /* --- Responsive düzenleme */
-    @media(max-width: 600px) {
-      #preloader img {
-        width: 70px;
-      }
-      #preloader .logo-text {
-        font-size: 3rem;
-      }
-      #preloader .slogan {
-        font-size: 1rem;
-      }
-    }
-
-    /* --- LİDERLER bölümü */
-
+    /* LİDERLER bölümü */
     #liderler {
-      margin: 50px auto;
-      max-width: 900px;
-      color: #00ffff;
+      margin-top: 40px;
       text-align: center;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #00ffff;
     }
     #liderler h2 {
       font-size: 2.4rem;
@@ -203,12 +167,12 @@
       text-shadow:
         0 0 6px #00fff7,
         0 0 12px #00fff7;
+      user-select: none;
     }
-
     #liderler .lider-list {
       display: flex;
       justify-content: center;
-      gap: 60px;
+      gap: 50px;
       flex-wrap: wrap;
     }
     #liderler .lider-item {
@@ -224,12 +188,12 @@
       transform: scale(1.05);
       box-shadow: 0 0 18px #00fff7;
     }
-
     #liderler .lider-item img {
       width: 120px;
       border-radius: 12px;
       margin-bottom: 12px;
       filter: drop-shadow(0 0 6px #00fff7);
+      user-select: none;
     }
     #liderler .lider-item .nick {
       font-size: 1.6rem;
@@ -237,17 +201,15 @@
       letter-spacing: 0.05em;
       color: #00fff7;
       margin-bottom: 6px;
-      user-select: none;
+      user-select: text;
     }
     #liderler .lider-item .id {
       font-size: 1.1rem;
       color: #00bbbb;
       user-select: text;
     }
-
-    /* --- TikTok sosyal medya ikonları */
     #liderler .tiktok-links {
-      margin-top: 15px;
+      margin-top: 10px;
       display: flex;
       justify-content: center;
       gap: 18px;
@@ -262,15 +224,99 @@
       color: #00fff7aa;
     }
 
+    /* Başvuru formu */
+
+    #basvuru {
+      margin-top: 60px;
+      background: #001222dd;
+      border-radius: 16px;
+      padding: 25px 20px;
+      box-shadow: 0 0 15px #00fff7aa;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #00ffff;
+      user-select: none;
+    }
+    #basvuru h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      font-weight: 900;
+      text-shadow: 0 0 8px #00fff7;
+    }
+
+    #basvuru form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    #basvuru label {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 4px;
+      user-select: text;
+    }
+    #basvuru input,
+    #basvuru select,
+    #basvuru textarea {
+      background: #000020;
+      border: 1.8px solid #00fff7aa;
+      border-radius: 10px;
+      color: #00ffff;
+      padding: 10px 14px;
+      font-size: 1rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      transition: border-color 0.3s ease;
+      resize: none;
+    }
+    #basvuru input:focus,
+    #basvuru select:focus,
+    #basvuru textarea:focus {
+      outline: none;
+      border-color: #00ffff;
+      box-shadow: 0 0 10px #00fff7;
+    }
+    #basvuru button {
+      margin-top: 10px;
+      background: #00fff7;
+      color: #000014;
+      font-weight: 900;
+      padding: 12px 0;
+      border-radius: 12px;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    #basvuru button:hover {
+      background: #00ccc9;
+    }
+    #basvuru .info-msg {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #0ff;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 650px) {
+      #liderler .lider-list {
+        flex-direction: column;
+        align-items: center;
+      }
+      #basvuru {
+        max-width: 90%;
+      }
+    }
   </style>
-
-  <!-- TikTok ikonları için font awesome cdn -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
 </head>
 <body>
 
-  <!-- Giriş ekranı (preloader) -->
+  <!-- Preloader -->
   <div id="preloader" aria-label="Site giriş ekranı">
     <div class="logo-text-wrapper">
       <img src="logo.png" alt="ZZONE99 Logo" />
@@ -287,13 +333,10 @@
     </div>
   </div>
 
-  <!-- Ana site içeriği -->
+  <!-- Site içeriği -->
   <div id="content">
 
-    <!-- Diğer site içerik burada olacak -->
-    <!-- ... -->
-    
-    <!-- LİDERLER kısmı -->
+    <!-- LİDERLER -->
     <section id="liderler">
       <h2>LİDERLER</h2>
       <div class="lider-list">
@@ -320,20 +363,78 @@
       </div>
     </section>
 
-    <!-- Buraya mevcut sitenin diğer içeriği gelecek (bozulmayacak) -->
+    <!-- Başvuru Formu -->
+    <section id="basvuru">
+      <h2>Klana Katıl</h2>
+      <form id="applyForm" action="https://formspree.io/f/xldnljve" method="POST" novalidate>
+        <label for="uid">UID (Oyuncu ID):</label>
+        <input type="text" id="uid" name="UID" required placeholder="Örnek: 123456789" />
+
+        <label for="gameName">Oyun İsim (Nickname):</label>
+        <input type="text" id="gameName" name="GameName" required placeholder="Oyundaki isminiz" />
+
+        <label for="name">Gerçek İsim:</label>
+        <input type="text" id="name" name="RealName" required placeholder="Adınız Soyadınız" />
+
+        <label for="age">Yaş:</label>
+        <input type="number" id="age" name="Age" min="12" max="99" required placeholder="Yaşınız" />
+
+        <label for="device">Cihaz:</label>
+        <select id="device" name="Device" required>
+          <option value="">Cihazınızı seçin</option>
+          <option value="Android">Android</option>
+          <option value="iOS">iOS</option>
+          <option value="PC">PC</option>
+          <option value="Diğer">Diğer</option>
+        </select>
+
+        <label for="activity">Aktiflik Durumu:</label>
+        <textarea id="activity" name="Activity" rows="3" placeholder="Ne sıklıkta oynuyorsunuz?" required></textarea>
+
+        <button type="submit">Başvuruyu Gönder</button>
+      </form>
+      <div class="info-msg" id="formMessage" role="alert" aria-live="polite"></div>
+    </section>
 
   </div>
 
   <script>
-    // 2 saniyelik preloader gizleme
+    // Preloader 2 saniye sonra gizle
     window.addEventListener('load', () => {
       setTimeout(() => {
-        const preloader = document.getElementById('preloader');
-        const content = document.getElementById('content');
-        preloader.style.display = 'none';
-        content.style.display = 'block';
+        document.getElementById('preloader').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
       }, 2000);
     });
-  </script>
 
+    // Basit form gönderim kontrolü ve mesaj gösterimi
+    const form = document.getElementById('applyForm');
+    const msg = document.getElementById('formMessage');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msg.textContent = "Başvurunuz gönderiliyor...";
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        if (response.ok) {
+          msg.textContent = "Başvurunuz başarıyla gönderildi. Teşekkürler!";
+          form.reset();
+        } else {
+          msg.textContent = "Başvuru gönderilirken bir hata oluştu. Lütfen tekrar deneyin.";
+        }
+      } catch (error) {
+        msg.textContent = "Sunucuya bağlanırken sorun oluştu. İnternet bağlantınızı kontrol edin.";
+      }
+    });
+  </script>
 </body>
+
